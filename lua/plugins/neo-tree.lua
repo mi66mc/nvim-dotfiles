@@ -35,6 +35,7 @@ return {
                 width = 32,
                 mappings = {
                     ["<cr>"] = "open",
+                    ["l"] = "open",
                     ["s"] = "open_split",
                     ["v"] = "open_vsplit",
                 },
