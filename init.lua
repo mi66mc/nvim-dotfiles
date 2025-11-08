@@ -15,6 +15,8 @@ opt.scrolloff = 10
 
 opt.undofile = true
 
+opt.pumheight = 10
+
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
@@ -25,7 +27,6 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help ta
 
 vim.keymap.set('n', '<leader>e', function()
     local winid = vim.fn.win_getid(vim.fn.bufwinnr("neo-tree filesystem"))
-    
     if winid ~= 0 then
         if vim.fn.win_getid() == winid then
             vim.cmd("Neotree close")
