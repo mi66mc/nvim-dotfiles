@@ -26,6 +26,29 @@ vim.api.nvim_set_option("clipboard", "unnamed")
 require('lualine').setup()
 require('mini.indentscope').setup()
 
+vim.diagnostic.config({
+    underline = true,
+    update_in_insert = false,
+    signs = {
+        text = {
+            [vim.diagnostic.severity.ERROR] = " ",
+            [vim.diagnostic.severity.WARN] = " ",
+            [vim.diagnostic.severity.INFO] = " ",
+            [vim.diagnostic.severity.HINT] = "󰠠 ",
+        },
+        linehl = {
+            [vim.diagnostic.severity.ERROR] = "Error",
+            [vim.diagnostic.severity.WARN] = "Warn",
+            [vim.diagnostic.severity.INFO] = "Info",
+            [vim.diagnostic.severity.HINT] = "Hint",
+        },
+    },
+    virtual_text = {
+        prefix = "●"
+    }
+})
+
+
 local builtin = require('telescope.builtin')
 
 -- BINDS
@@ -76,4 +99,3 @@ map("v", "<A-Up>", ":m '<-2<CR>gv=gv", opts)
 map("v", "<A-Down>", ":m '>+1<CR>gv=gv", opts)
 
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]])
-
